@@ -3,10 +3,7 @@
     flex-wrap: wrap;
    position:relative;
    justify-content: space-evenly;
-   height: 25vh;
-   border-radius: 100%;
-   border-color: chartreuse;
-   border-style: groove;
+ 
    
 }
 .caja{
