@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import {useDispatch,useSelector } from 'react-redux'
 import {filterCards,desfilter,orderCards} from '../../redux/actions/actionsCreator'
 import Cards from '../Cards/Cards'
-
+import s from './favorites.module.css'
 
 export default function Favorites(props) {
  const gender=['All','Male', 'Female', 'unknown', 'Genderless'];
@@ -25,29 +25,30 @@ function orderCardsSelect(e){
 }
 
   return (
-    <div>
-
-<label htmlFor="order">Ordenar: </label>
-    <select id="order" onChange={orderCardsSelect} >
+    <>
+<div className={s.div1}>
+<label>Ordenar: 
+    <select onChange={orderCardsSelect} >
        <option  value="Ascendente" >Ascendente</option> 
        <option  value="Descendente" >Descendente</option> 
     </select>
+</label>    
 
-<label htmlFor="listado">Filtrar: </label>
-    <select id="listado" onChange={filterCardsSelect} >
+<label>Filtrar: 
+    <select onChange={filterCardsSelect} >
       { gender.map(elem=> 
     <option  value={elem}   key={elem}>{elem}</option> )
       }
     </select>
-    
-   
+</label>   
+   </div>
          
       {myFavorites && <Cards personajes={myFavorites}></Cards>
       }
 
 
 
-    </div>
+    </>
   )
 }
 
