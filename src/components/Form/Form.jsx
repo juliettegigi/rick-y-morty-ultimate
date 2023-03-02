@@ -5,8 +5,8 @@ import { setUserdata } from "../../redux/actions/actionsCreator"
 import {validation} from './validation'
 import img from '../../assets/form.png'
 export default function Form(props){
-    const [userData, setUserData] = React.useState({ username: '', 
-                                                     password: '' });
+    const [userData, setUserData] = React.useState({ username: 'julia@g.com', 
+                                                     password: 'julia18' });
     const userDataGlobal=useSelector((state)=>({...state.userData}))
     const [errors,setErrors]=React.useState({});
     let [flag,setFlag]=React.useState(false);
@@ -32,7 +32,7 @@ export default function Form(props){
      <form className={s.form} onSubmit={handleSubmit} >
              <h1>Rick y morty</h1>
              <label>Username: 
-                <input type="text" placeholder="julia@g.com" onChange={handleInputChange} value={userData.username} name="username"></input>
+                <input type="text"  onChange={handleInputChange} value={userData.username} name="username"></input>
              </label>
              {errors.username && errors.username.map(
                 (error,i)=>{ return <p className={s.p} 
@@ -42,7 +42,7 @@ export default function Form(props){
                             }
              )} 
             <label>Password:
-                <input type="password"  placeholder="julia18" onChange={handleInputChange} value={userData.password} name="password"/>
+                <input type="password" onChange={handleInputChange} value={userData.password} name="password"/>
             </label>
             {errors.password && errors.password.map((error,i)=>{
                 return<p key={`pass-${i}`} className={s.p}>{error+ "-"}</p>
