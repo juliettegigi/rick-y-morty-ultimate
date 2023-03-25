@@ -34,7 +34,7 @@ else {alert("user o contraseña incorrecta")}
 
 useEffect(() => {
   console.log(access);
-   !access && navigate('/');
+   !access && navigate('/',{replace:true});
  
 }, []);
 
